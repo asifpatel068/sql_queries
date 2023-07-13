@@ -1,0 +1,116 @@
+Problem 16:
+
+Prerequisite: Understand creating tables in SQL / collections in MongoDB
+Problem: Create a Restaurants table / collection with the fields defined above.
+Solution 16:
+To create the Restaurants table, we'll use the following SQL query:
+
+sql
+CREATE TABLE Restaurants (
+    id INT PRIMARY KEY,
+    name VARCHAR(100),
+    cuisine_type VARCHAR(100),
+    location VARCHAR(255),
+    average_rating DECIMAL(3,2),
+    delivery_available BOOLEAN
+);
+Explanation: This query creates a table named Restaurants with the specified fields: id, name, cuisine_type, location, average_rating, and delivery_available. The id field is set as the primary key to uniquely identify each restaurant.
+
+Problem 17:
+
+Prerequisite: Understand inserting data into SQL tables / MongoDB collections
+Problem: Insert five rows / documents into the Restaurants table / collection with data of your choice.
+Solution 17:
+To insert data into the Restaurants table, we'll use the following SQL query:
+
+sql
+
+INSERT INTO Restaurants (id, name, cuisine_type, location, average_rating, delivery_available)
+VALUES
+    (1, 'Restaurant A', 'Italian', 'New York', 4.5, true),
+    (2, 'Restaurant B', 'Chinese', 'Los Angeles', 3.8, false),
+    (3, 'Restaurant C', 'Mexican', 'Chicago', 4.2, true),
+    (4, 'Restaurant D', 'Indian', 'San Francisco', 4.9, true),
+    (5, 'Restaurant E', 'Japanese', 'Seattle', 3.5, false);
+Explanation: This query inserts five rows into the Restaurants table, each representing a restaurant with different values for the fields. You can customize the values according to your preference.
+
+Problem 18:
+
+Prerequisite: Understand how to order data in SQL / MongoDB
+Problem: Write a query to fetch all restaurants, ordered by average_rating in descending order.
+Solution 18:
+
+sql
+SELECT * FROM Restaurants ORDER BY average_rating DESC;
+Explanation: This query selects all columns (*) from the Restaurants table and orders the result in descending order based on the average_rating column. This will fetch all restaurants from the table, sorted by their average rating in descending order.
+
+Problem 19:
+
+Prerequisite: Understand filtering with multiple conditions in SQL / MongoDB
+Problem: Write a query to fetch all restaurants that offer delivery_available and have an average_rating of more than 4.
+Solution 19:
+
+sql
+SELECT * FROM Restaurants WHERE delivery_available = true AND average_rating > 4;
+Explanation: This query selects all columns (*) from the Restaurants table where delivery_available is true and average_rating is greater than 4. It will fetch all restaurants that offer delivery and have an average rating greater than 4.
+
+Problem 20:
+
+Prerequisite: Understand how to use NULL checks in SQL / MongoDB
+Problem: Write a query to fetch all restaurants where the cuisine_type field is not set or is null.
+Solution 20:
+
+sql
+SELECT * FROM Restaurants WHERE cuisine_type IS NULL OR cuisine_type = '';
+Explanation: This query selects all columns (*) from the Restaurants table where the cuisine_type field is either null or an empty string. It will fetch all restaurants where the cuisine type is not set or is null.
+
+Problem 21:
+
+Prerequisite: Understand how to count rows / documents in SQL / MongoDB
+Problem: Write a query to count the number of restaurants that have delivery_available.
+Solution 21:
+
+sql
+SELECT COUNT(*) AS delivery_restaurants_count FROM Restaurants WHERE delivery_available = true;
+Explanation: This query uses the COUNT(*) function to count the number of rows in the Restaurants table where delivery_available is true. It returns the count as delivery_restaurants_count.
+
+Problem 22:
+
+Prerequisite: Understand using string patterns in SQL (LIKE clause) / using regex in MongoDB
+Problem: Write a query to fetch all restaurants whose location contains 'New York'.
+Solution 22:
+
+sql
+SELECT * FROM Restaurants WHERE location LIKE '%New York%';
+Explanation: This query selects all columns (*) from the Restaurants table where the location field contains the string 'New York'. The % symbol is a wildcard that matches any number of characters, so it will fetch all restaurants whose location includes the phrase 'New York'.
+
+Problem 23:
+
+Prerequisite: Understand how to use the AVG function in SQL / MongoDB's aggregate functions
+Problem: Write a query to calculate the average average_rating of all restaurants.
+Solution 23:
+
+sql
+SELECT AVG(average_rating) AS average_rating FROM Restaurants;
+Explanation: This query uses the AVG function to calculate the average of the average_rating column in the Restaurants table. The result is returned as average_rating.
+
+Problem 24:
+
+Prerequisite: Understand how to limit results in SQL / MongoDB
+Problem: Write a query to fetch the top 5 restaurants when ordered by average_rating in descending order.
+Solution 24:
+
+sql
+SELECT * FROM Restaurants ORDER BY average_rating DESC LIMIT 5;
+Explanation: This query selects all columns (*) from the Restaurants table, orders the result by average_rating in descending order, and limits the result to the top 5 rows. It will fetch the top 5 restaurants with the highest average rating.
+
+Problem 25:
+
+Prerequisite: Understand data deletion in SQL / MongoDB
+Problem: Write a query to delete the restaurant with id 3.
+Solution 25:
+
+sql
+DELETE FROM Restaurants WHERE id = 3;
+Explanation: This query uses the DELETE statement to remove the row from the Restaurants table where the id is 3. It will delete the restaurant with the specified id.
+
